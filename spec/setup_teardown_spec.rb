@@ -1,0 +1,16 @@
+require "blog"
+
+describe "Callbacks" do
+  let(:blog) { Blog.new } # reinitialize before every test block
+
+  # run before each test
+  before(:example) do |example|
+    blog.populate!
+    puts example.inspect
+  end
+
+  it "has one post" do
+    expect(blog.posts_count).to eq(1)
+  end
+
+end
